@@ -1,0 +1,63 @@
+time="2023-01-25T19:17:12Z" level=info msg="Not using native diff for overlay, this may cause degraded performance for building images: kernel has CONFIG_OVERLAY_FS_REDIRECT_DIR enabled"
+I0125 19:17:12.248797       1 defaults.go:102] Defaulting to storage driver "overlay" with options [mountopt=metacopy=on].
+Caching blobs under "/var/cache/blobs".
+Trying to pull image-registry.openshift-image-registry.svc:5000/openshift/php@sha256:b1dc413951bdcfeae26f3e0d0515a1811d17153de3aa68d374ab8ffcb1aed02b...
+Getting image source signatures
+Copying blob sha256:db608296957efdd1535da2c7545dea9f4db22e72cd307933366ca606aa0ec83d
+Copying blob sha256:b5307ee26e5780a8a360b1784f0f7d394359ce223fece68dfce6f8f86a5817d6
+Copying blob sha256:1d32e8a6271e10a455c0bdeb8091f8afa57db8f07eeaa2684aa741ae2e9f5ea3
+Copying blob sha256:2f27976344320254893db1a19137bcc88e1e73983df2f338c18b1019bf218f6d
+Copying blob sha256:a202947f9062a296a3360a3ead395c58929fed77eaa6af2b5441f0a7ef685cc4
+Copying config sha256:73d2927323814263546de67480077511818476fc3fe67e20a6334086f8c8799a
+Writing manifest to image destination
+Storing signatures
+Generating dockerfile with builder image image-registry.openshift-image-registry.svc:5000/openshift/php@sha256:b1dc413951bdcfeae26f3e0d0515a1811d17153de3aa68d374ab8ffcb1aed02b
+Adding transient rw bind mount for /run/secrets/rhsm
+STEP 1/9: FROM image-registry.openshift-image-registry.svc:5000/openshift/php@sha256:b1dc413951bdcfeae26f3e0d0515a1811d17153de3aa68d374ab8ffcb1aed02b
+STEP 2/9: LABEL "io.openshift.build.commit.id"="f7cd8963ef353d9173c3a21dcccf402f3616840b"       "io.openshift.build.commit.ref"="s2i"       "io.openshift.build.commit.message"="Initial commit, including all apps previously in course"       "io.openshift.build.source-location"="https://github.com/raghavendrasvs1991/DO180-apps"       "io.openshift.build.source-context-dir"="php-helloworld"       "io.openshift.build.image"="image-registry.openshift-image-registry.svc:5000/openshift/php@sha256:b1dc413951bdcfeae26f3e0d0515a1811d17153de3aa68d374ab8ffcb1aed02b"       "io.openshift.build.commit.author"="Jordi Sola <someth2say@gmail.com>"       "io.openshift.build.commit.date"="Fri Oct 4 13:04:03 2019 +0200"
+STEP 3/9: ENV OPENSHIFT_BUILD_NAME="php-helloworld-1"     OPENSHIFT_BUILD_NAMESPACE="umgodo-s2i"     OPENSHIFT_BUILD_SOURCE="https://github.com/raghavendrasvs1991/DO180-apps"     OPENSHIFT_BUILD_REFERENCE="s2i"     OPENSHIFT_BUILD_COMMIT="f7cd8963ef353d9173c3a21dcccf402f3616840b"
+STEP 4/9: USER root
+STEP 5/9: COPY upload/src /tmp/src
+STEP 6/9: RUN chown -R 1001:0 /tmp/src
+STEP 7/9: USER 1001
+STEP 8/9: RUN /usr/libexec/s2i/assemble
+---> Installing application source...
+=> sourcing 20-copy-config.sh ...
+---> 19:17:30     Processing additional arbitrary httpd configuration provided by s2i ...
+=> sourcing 00-documentroot.conf ...
+=> sourcing 50-mpm-tuning.conf ...
+=> sourcing 40-ssl-certs.sh ...
+STEP 9/9: CMD /usr/libexec/s2i/run
+COMMIT temp.builder.openshift.io/umgodo-s2i/php-helloworld-1:820c69d9
+time="2023-01-25T19:17:30Z" level=warning msg="Adding metacopy option, configured globally"
+Getting image source signatures
+Copying blob sha256:fc9263521a608239758559b5f8cc8553204ae31a6c876d4c7b2f2c4e5d1b5436
+Copying blob sha256:2667b565303a1bd33d9802090e4534ac198b9871b94a191d4ee1a70510d0678e
+Copying blob sha256:84291e4dc77cfd0bb4d496bb0a5cf155c5f5dc39d2466245451cf6843d1a95e9
+Copying blob sha256:9a6121ea2a2c596eae1482a77d8d128c62e18b84c527c8a8821b667614e56a2d
+Copying blob sha256:e99cabdbd45c7926ba6ca190c439de753b974c659ecdad1827e8b7b8301c6e5c
+Copying blob sha256:7d0b9255bc108ffbaa1f1f257ca22b3f97a4141be0a9c4b7739e607c4b2976c8
+Copying config sha256:6c479570a0f85adb33236e1ff7a3a723d838fbc809980b57e23d65165b41d1ca
+Writing manifest to image destination
+Storing signatures
+--> 6c479570a0f
+Successfully tagged temp.builder.openshift.io/umgodo-s2i/php-helloworld-1:820c69d9
+6c479570a0f85adb33236e1ff7a3a723d838fbc809980b57e23d65165b41d1ca
+
+Pushing image image-registry.openshift-image-registry.svc:5000/umgodo-s2i/php-helloworld:latest ...
+Getting image source signatures
+Copying blob sha256:7d0b9255bc108ffbaa1f1f257ca22b3f97a4141be0a9c4b7739e607c4b2976c8
+Copying blob sha256:db608296957efdd1535da2c7545dea9f4db22e72cd307933366ca606aa0ec83d
+Copying blob sha256:a202947f9062a296a3360a3ead395c58929fed77eaa6af2b5441f0a7ef685cc4
+Copying blob sha256:b5307ee26e5780a8a360b1784f0f7d394359ce223fece68dfce6f8f86a5817d6
+Copying blob sha256:2f27976344320254893db1a19137bcc88e1e73983df2f338c18b1019bf218f6d
+Copying blob sha256:1d32e8a6271e10a455c0bdeb8091f8afa57db8f07eeaa2684aa741ae2e9f5ea3
+Copying config sha256:6c479570a0f85adb33236e1ff7a3a723d838fbc809980b57e23d65165b41d1ca
+Writing manifest to image destination
+Storing signatures
+Successfully pushed image-registry.openshift-image-registry.svc:5000/umgodo-s2i/php-helloworld@sha256:48a436a9abc631c75cf77afa96cd0bda00ce083e43dffc652afd389b6679f088
+Push successful
+Cloning "https://github.com/raghavendrasvs1991/DO180-apps" ...
+	Commit:	f7cd8963ef353d9173c3a21dcccf402f3616840b (Initial commit, including all apps previously in course)
+	Author:	Jordi Sola <someth2say@gmail.com>
+	Date:	Fri Oct 4 13:04:03 2019 +0200
